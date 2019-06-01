@@ -1,25 +1,28 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
 // Router
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from "./app-routing.module";
 
 // Angular Material
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import {MatSelectModule} from '@angular/material/select';
 
 // Components
-import { AppComponent } from './app.component';
+import { AppComponent } from "./app.component";
 import { SearchInputComponent } from "./search-input/search-input.component";
-import { NavigationComponent } from './navigation/navigation.component';
-import { VideoListComponent } from './video-list/video-list.component';
-import { VideoListItemComponent } from './video-list-item/video-list-item.component';
-import { VideoCartComponent } from './video-cart/video-cart.component';
-import { VideoTilesComponent } from './video-tiles/video-tiles.component';
-
+import { NavigationComponent } from "./navigation/navigation.component";
+import { VideoListComponent } from "./video-list/video-list.component";
+import { VideoListItemComponent } from "./video-list-item/video-list-item.component";
+import { VideoCartComponent } from "./video-cart/video-cart.component";
+import { VideoTilesComponent } from "./video-tiles/video-tiles.component";
+import { ToolbarComponent } from "./toolbar/toolbar.component";
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { VideoTilesComponent } from './video-tiles/video-tiles.component';
     VideoListComponent,
     VideoListItemComponent,
     VideoCartComponent,
-    VideoTilesComponent
+    VideoTilesComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +43,12 @@ import { VideoTilesComponent } from './video-tiles/video-tiles.component';
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule,
+    MatSlideToggleModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
