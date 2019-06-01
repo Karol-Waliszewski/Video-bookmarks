@@ -12,7 +12,9 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from "@angular/material/select";
+import { MatCardModule } from "@angular/material/card";
+import { MatGridListModule } from "@angular/material/grid-list";
 
 // Components
 import { AppComponent } from "./app.component";
@@ -23,7 +25,7 @@ import { VideoListItemComponent } from "./video-list-item/video-list-item.compon
 import { VideoCartComponent } from "./video-cart/video-cart.component";
 import { VideoTilesComponent } from "./video-tiles/video-tiles.component";
 import { ToolbarComponent } from "./toolbar/toolbar.component";
-import { VideoViewComponent } from './video-view/video-view.component';
+import { VideoViewComponent } from "./video-view/video-view.component";
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { VideoViewComponent } from './video-view/video-view.component';
     MatIconModule,
     MatTooltipModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
