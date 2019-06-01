@@ -1,5 +1,6 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
 
 // Router
 import { AppRoutingModule } from "./app-routing.module";
@@ -41,6 +42,7 @@ import { VideoViewComponent } from "./video-view/video-view.component";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     // Angular MateriaL
     BrowserAnimationsModule,
