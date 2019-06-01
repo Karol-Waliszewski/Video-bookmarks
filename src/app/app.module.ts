@@ -23,6 +23,7 @@ import { VideoListItemComponent } from "./video-list-item/video-list-item.compon
 import { VideoCartComponent } from "./video-cart/video-cart.component";
 import { VideoTilesComponent } from "./video-tiles/video-tiles.component";
 import { ToolbarComponent } from "./toolbar/toolbar.component";
+import { VideoViewComponent } from './video-view/video-view.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ToolbarComponent } from "./toolbar/toolbar.component";
     VideoListItemComponent,
     VideoCartComponent,
     VideoTilesComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    VideoViewComponent
   ],
   imports: [
     BrowserModule,
