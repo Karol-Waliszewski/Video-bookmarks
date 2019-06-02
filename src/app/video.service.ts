@@ -91,7 +91,7 @@ export class VideoService {
 
   removeVideo(id: string) {
     this.videos = this.videos.filter(video => video.id !== id);
-    return this.videos;
+    return this.getVideos();
   }
 
   toggleVideoFavourite(id: string) {
@@ -99,7 +99,7 @@ export class VideoService {
       if (video.id !== id) return video;
       else return Object.assign(video, { isFavourite: !video.isFavourite });
     });
-    return this.videos;
+    return this.getVideos();
   }
 
   updateFilter(value: boolean) {
