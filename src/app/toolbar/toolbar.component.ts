@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { VideoService } from "../video.service";
 
 @Component({
   selector: "app-toolbar",
@@ -9,11 +10,12 @@ export class ToolbarComponent implements OnInit {
   checked = false;
   sortedBy = "new";
 
-  constructor() {}
+  constructor(private videoService: VideoService) {}
 
   ngOnInit() {}
 
   isChecked(e) {
     this.checked = e.checked;
+    this.videoService.updateFilter(this.checked);
   }
 }

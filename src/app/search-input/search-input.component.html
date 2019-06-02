@@ -1,6 +1,6 @@
 <mat-form-field>
-  <input matInput placeholder="Video url">
+  <input matInput [(ngModel)]="input" placeholder="Video url">
 </mat-form-field>
-<button mat-icon-button matTooltip="Save a video" aria-label="Icon button with plus">
-    <mat-icon>add</mat-icon>
+<button mat-icon-button matTooltip="Save a video" aria-label="Icon button with plus" (click)="addVideo(input)">
+  <mat-icon>add</mat-icon>
 </button>

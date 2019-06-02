@@ -1,14 +1,5 @@
 <mat-grid-list cols="3" rowHeight="2:3" gutterSize="1rem" class="container">
-  <mat-grid-tile>
-    <video-cart></video-cart>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <video-cart></video-cart>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <video-cart></video-cart>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <video-cart></video-cart>
+  <mat-grid-tile *ngFor="let video of videos">
+    <video-card [video]="video" (onDelete)="deleteVideo($event)" (onFavourite)="toggleVideoFavourite($event)"></video-card>
   </mat-grid-tile>
 </mat-grid-list>

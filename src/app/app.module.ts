@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 // Router
 import { AppRoutingModule } from "./app-routing.module";
@@ -23,7 +24,7 @@ import { SearchInputComponent } from "./search-input/search-input.component";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { VideoListComponent } from "./video-list/video-list.component";
 import { VideoListItemComponent } from "./video-list-item/video-list-item.component";
-import { VideoCartComponent } from "./video-cart/video-cart.component";
+import { VideoCardComponent } from "./video-card/video-card.component";
 import { VideoTilesComponent } from "./video-tiles/video-tiles.component";
 import { ToolbarComponent } from "./toolbar/toolbar.component";
 import { VideoViewComponent } from "./video-view/video-view.component";
@@ -35,7 +36,7 @@ import { VideoViewComponent } from "./video-view/video-view.component";
     NavigationComponent,
     VideoListComponent,
     VideoListItemComponent,
-    VideoCartComponent,
+    VideoCardComponent,
     VideoTilesComponent,
     ToolbarComponent,
     VideoViewComponent
@@ -44,6 +45,7 @@ import { VideoViewComponent } from "./video-view/video-view.component";
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
     // Angular MateriaL
     BrowserAnimationsModule,
     MatToolbarModule,
