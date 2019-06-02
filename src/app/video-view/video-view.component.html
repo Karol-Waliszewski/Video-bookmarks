@@ -1,9 +1,11 @@
-<div class="wrapper">
-
-  <video-tiles *ngIf="view === 'tiles'; else list" [videos]="videos" (onDelete)="deleteVideo($event)"
-    (onFavourite)="toggleVideoFavourite($event)"></video-tiles>
-  <ng-template #list>
-    <video-list [videos]="videos" (onDelete)="deleteVideo($event)" (onFavourite)="toggleVideoFavourite($event)">
-    </video-list>
-  </ng-template>
+<div class="container">
+  <h3 *ngIf="!videos.length" class="mat-headline">No saved matching videos found. </h3>
+  <ng-container *ngIf="videos.length">
+    <video-tiles *ngIf="view === 'tiles'; else list" [videos]="videos" (onDelete)="deleteVideo($event)"
+      (onFavourite)="toggleVideoFavourite($event)"></video-tiles>
+    <ng-template #list>
+      <video-list [videos]="videos" (onDelete)="deleteVideo($event)" (onFavourite)="toggleVideoFavourite($event)">
+      </video-list>
+    </ng-template>
+  </ng-container>
 </div>

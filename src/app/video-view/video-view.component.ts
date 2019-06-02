@@ -20,6 +20,7 @@ export class VideoViewComponent implements OnInit {
     this.videoService.getVideos().subscribe(videos => {
       this.videos = videos;
       this.sortVideos();
+      console.log(this.videos)
     });
     this.videoService.getSorting().subscribe(newestFirst => {
       this.newestFirst = newestFirst;
@@ -27,6 +28,7 @@ export class VideoViewComponent implements OnInit {
     });
     this.layoutService.getViewType().subscribe(view => {
       this.view = view;
+      console.log(this.view)
     });
   }
 
