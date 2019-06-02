@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable, BehaviorSubject } from "rxjs";
-
+import { BehaviorSubject } from "rxjs";
 import { v4 as uuid } from "uuid";
 
 interface Video {
@@ -47,8 +46,6 @@ export class VideoService {
       let url = new URL(input);
       this.getVimeoVideoInfo(url.pathname.slice(1));
     }
-
-    this.returnResultVideos();
   }
 
   getYoutubeVideoInfo(id: string) {
@@ -57,18 +54,15 @@ export class VideoService {
       .get(`https://noembed.com/embed?url=${url}`)
       .subscribe((data: youtubeResponse) => {
         let video = data;
-        let likes = Math.round(Math.random() * 100);
+        let likes = Math.round(Math.random() * 1000);
         let views = Math.round(Math.random() * 10000) + likes;
 
-        this.videos.push({
-          id: uuid(),
+        this.pushVideo({
           title: video.title,
           thumbnail: video.thumbnail_url,
           likes,
           views,
-          url: video.url,
-          isFavourite: false,
-          added: Date.now()
+          url: video.url
         });
       });
   }
@@ -78,17 +72,26 @@ export class VideoService {
       .get(`https://vimeo.com/api/v2/video/${id}.json`)
       .subscribe(data => {
         let video = data[0];
-        this.videos.push({
-          id: uuid(),
+        this.pushVideo({
           title: video.title,
           thumbnail: video.thumbnail_large,
           likes: video.stats_number_of_likes,
           views: video.stats_number_of_plays,
-          url: video.url,
-          isFavourite: false,
-          added: Date.now()
+          url: video.url
         });
       });
+  }
+
+  pushVideo(video) {
+    this.videos.push(
+      Object.assign(video, {
+        id: uuid(),
+        isFavourite: false,
+        added: Date.now()
+      })
+    );
+
+    this.returnResultVideos();
   }
 
   getVideos() {

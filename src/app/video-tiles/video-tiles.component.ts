@@ -9,7 +9,7 @@ import { VideoService } from "../video.service";
 })
 export class VideoTilesComponent implements OnInit {
   videos = [];
-  newestFirst: boolean
+  newestFirst = true;
 
   constructor(private videoService: VideoService) {}
 
