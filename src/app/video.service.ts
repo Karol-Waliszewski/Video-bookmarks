@@ -17,6 +17,7 @@ interface Video {
 interface youtubeResponse {
   title?: string;
   thumbnail_url?: string;
+  url?: string;
 }
 
 @Injectable({
@@ -25,11 +26,12 @@ interface youtubeResponse {
 export class VideoService {
   private videos = [];
   private onlyFavourites = false;
+  private newestVideosFirst = new BehaviorSubject(true);
   private resultVideos = new BehaviorSubject(this.videos);
 
   constructor(private http: HttpClient) {}
 
-  private returnResultVideos(){
+  private returnResultVideos() {
     let result = this.onlyFavourites ? this.getFavourites() : this.videos;
     this.resultVideos.next(result);
   }
@@ -45,6 +47,8 @@ export class VideoService {
       let url = new URL(input);
       this.getVimeoVideoInfo(url.pathname.slice(1));
     }
+
+    this.returnResultVideos();
   }
 
   getYoutubeVideoInfo(id: string) {
@@ -62,10 +66,10 @@ export class VideoService {
           thumbnail: video.thumbnail_url,
           likes,
           views,
+          url: video.url,
           isFavourite: false,
           added: Date.now()
         });
-        console.log(this.videos);
       });
   }
 
@@ -80,10 +84,10 @@ export class VideoService {
           thumbnail: video.thumbnail_large,
           likes: video.stats_number_of_likes,
           views: video.stats_number_of_plays,
+          url: video.url,
           isFavourite: false,
           added: Date.now()
         });
-        console.log(this.videos);
       });
   }
 
@@ -93,6 +97,10 @@ export class VideoService {
 
   getFavourites() {
     return this.videos.filter(video => video.isFavourite);
+  }
+
+  getSorting() {
+    return this.newestVideosFirst.asObservable();
   }
 
   removeVideo(id: string) {
@@ -111,5 +119,10 @@ export class VideoService {
   updateFilter(value: boolean) {
     this.onlyFavourites = value;
     this.returnResultVideos();
+  }
+
+  updateSorting(value: string) {
+    let bool = value === "new" ? true : false;
+    this.newestVideosFirst.next(bool);
   }
 }

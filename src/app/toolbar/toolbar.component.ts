@@ -8,7 +8,6 @@ import { VideoService } from "../video.service";
 })
 export class ToolbarComponent implements OnInit {
   checked = false;
-  sortedBy = "new";
 
   constructor(private videoService: VideoService) {}
 
@@ -17,5 +16,9 @@ export class ToolbarComponent implements OnInit {
   isChecked(e) {
     this.checked = e.checked;
     this.videoService.updateFilter(this.checked);
+  }
+
+  sortBy(e) {
+    this.videoService.updateSorting(e.value);
   }
 }

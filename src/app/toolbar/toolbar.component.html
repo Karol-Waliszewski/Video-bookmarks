@@ -7,7 +7,7 @@
 
   <p class="mat-typography sort-label">Sort by:</p>
   <mat-form-field>
-    <mat-select [(value)]="sortedBy">
+    <mat-select value="new" (selectionChange)="sortBy($event)">
       <mat-option value="new">Newest</mat-option>
       <mat-option value="old">Oldest</mat-option>
     </mat-select>

@@ -9,13 +9,27 @@ import { VideoService } from "../video.service";
 })
 export class VideoTilesComponent implements OnInit {
   videos = [];
+  newestFirst: boolean
 
   constructor(private videoService: VideoService) {}
 
   ngOnInit() {
     this.videoService.getVideos().subscribe(videos => {
       this.videos = videos;
+      this.sortVideos();
     });
+    this.videoService.getSorting().subscribe(newestFirst => {
+      this.newestFirst = newestFirst
+      this.sortVideos();
+    });
+  }
+
+  sortVideos() {
+    if (this.newestFirst) {
+      this.videos = this.videos.sort((a, b) => (a.added < b.added ? 1 : -1));
+    } else {
+      this.videos = this.videos.sort((a, b) => (a.added > b.added ? 1 : -1));
+    }
   }
 
   deleteVideo(id: string) {

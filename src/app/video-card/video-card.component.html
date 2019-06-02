@@ -1,6 +1,5 @@
-<mat-card class="example-card">
+<mat-card class="video-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{video.title}}</mat-card-title>
     <mat-card-subtitle>Saved: {{video.added | date}}</mat-card-subtitle>
   </mat-card-header>
@@ -10,7 +9,7 @@
     <p>Likes: {{video.likes}}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>Watch</button>
+    <a [href]="video.url" mat-button>Watch</a>
     <button mat-icon-button matTooltip="Add to favourites" aria-label="Icon button with star"
       (click)="onFavourite.emit(video.id)">
       <mat-icon *ngIf="!video.isFavourite; else fav">star_border</mat-icon>
