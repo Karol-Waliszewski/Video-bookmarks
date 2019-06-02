@@ -13,20 +13,16 @@ export class VideoTilesComponent implements OnInit {
   constructor(private videoService: VideoService) {}
 
   ngOnInit() {
-    this.videoService.getFilter().subscribe(value=>{
-      this.getVideos();
-    })
-  }
-
-  getVideos() {
-    this.videos = this.videoService.getVideos();
+    this.videoService.getVideos().subscribe(videos => {
+      this.videos = videos;
+    });
   }
 
   deleteVideo(id: string) {
-    this.videos = this.videoService.removeVideo(id);
+    this.videoService.removeVideo(id);
   }
 
   toggleVideoFavourite(id: string) {
-    this.videos = this.videoService.toggleVideoFavourite(id);
+    this.videoService.toggleVideoFavourite(id);
   }
 }

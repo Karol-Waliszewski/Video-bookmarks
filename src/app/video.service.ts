@@ -24,9 +24,15 @@ interface youtubeResponse {
 })
 export class VideoService {
   private videos = [];
-  private favouriteFilter = new BehaviorSubject(false);
+  private onlyFavourites = false;
+  private resultVideos = new BehaviorSubject(this.videos);
 
   constructor(private http: HttpClient) {}
+
+  private returnResultVideos(){
+    let result = this.onlyFavourites ? this.getFavourites() : this.videos;
+    this.resultVideos.next(result);
+  }
 
   addVideo(input: string) {
     if (input.includes("youtube")) {
@@ -82,7 +88,7 @@ export class VideoService {
   }
 
   getVideos() {
-    return this.favouriteFilter.getValue() ? this.getFavourites() : this.videos;
+    return this.resultVideos.asObservable();
   }
 
   getFavourites() {
@@ -91,7 +97,7 @@ export class VideoService {
 
   removeVideo(id: string) {
     this.videos = this.videos.filter(video => video.id !== id);
-    return this.getVideos();
+    this.returnResultVideos();
   }
 
   toggleVideoFavourite(id: string) {
@@ -99,14 +105,11 @@ export class VideoService {
       if (video.id !== id) return video;
       else return Object.assign(video, { isFavourite: !video.isFavourite });
     });
-    return this.getVideos();
+    this.returnResultVideos();
   }
 
   updateFilter(value: boolean) {
-    this.favouriteFilter.next(value);
-  }
-
-  getFilter() {
-    return this.favouriteFilter.asObservable();
+    this.onlyFavourites = value;
+    this.returnResultVideos();
   }
 }
