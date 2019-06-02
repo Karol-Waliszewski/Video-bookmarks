@@ -1,20 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class LayoutService {
-
   viewType = new BehaviorSubject("tiles");
 
-  constructor() { }
+  constructor() {}
 
-  getViewType(){
+  getViewType() {
     return this.viewType.asObservable();
   }
 
-  updateViewType(type: string){
+  updateViewType(type: string) {
     this.viewType.next(type);
   }
 }

@@ -1,5 +1,9 @@
-
 <div class="wrapper">
-{{view}}
-  <video-tiles></video-tiles>
+
+  <video-tiles *ngIf="view === 'tiles'; else list" [videos]="videos" (onDelete)="deleteVideo($event)"
+    (onFavourite)="toggleVideoFavourite($event)"></video-tiles>
+  <ng-template #list>
+    <video-list [videos]="videos" (onDelete)="deleteVideo($event)" (onFavourite)="toggleVideoFavourite($event)">
+    </video-list>
+  </ng-template>
 </div>
