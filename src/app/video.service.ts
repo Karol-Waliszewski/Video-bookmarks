@@ -6,11 +6,12 @@ import { v4 as uuid } from "uuid";
 interface Video {
   title: string;
   thumbnail: string;
-  added: Date;
+  added?: Date;
   likes: number;
   views: number;
-  id: string;
-  isFavourite: boolean;
+  id?: string;
+  url: string;
+  isFavourite?: boolean;
 }
 
 interface youtubeResponse {
@@ -82,7 +83,7 @@ export class VideoService {
       });
   }
 
-  pushVideo(video) {
+  pushVideo(video: Video) {
     this.videos.push(
       Object.assign(video, {
         id: uuid(),

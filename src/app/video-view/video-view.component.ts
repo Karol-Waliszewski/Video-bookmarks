@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LayoutService} from "../layout.service";
+
 
 @Component({
   selector: 'video-view',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-view.component.scss']
 })
 export class VideoViewComponent implements OnInit {
-
-  constructor() { }
+  view: string;
+  constructor(private layoutService:LayoutService) { }
 
   ngOnInit() {
+    this.layoutService.getViewType().subscribe(view=>{
+      this.view = view;
+    })
   }
 
 }

@@ -13,11 +13,11 @@
     </mat-select>
   </mat-form-field>
 
-  <button mat-icon-button matTooltip="Tiles view" aria-label="Icon button turning on tiles view">
+  <button mat-icon-button matTooltip="Tiles view" aria-label="Icon button turning on tiles view" (click)="updateView('tiles')">
     <mat-icon>view_modules</mat-icon>
   </button>
 
-  <button mat-icon-button matTooltip="List view" aria-label="Icon button turning on list view">
+  <button mat-icon-button matTooltip="List view" aria-label="Icon button turning on list view" (click)="updateView('list')">
     <mat-icon>view_list</mat-icon>
   </button>
 </mat-toolbar>

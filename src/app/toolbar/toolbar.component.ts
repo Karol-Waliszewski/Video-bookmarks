@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { VideoService } from "../video.service";
+import {LayoutService} from "../layout.service";
 
 @Component({
   selector: "app-toolbar",
@@ -9,7 +10,7 @@ import { VideoService } from "../video.service";
 export class ToolbarComponent implements OnInit {
   checked = false;
 
-  constructor(private videoService: VideoService) {}
+  constructor(private videoService: VideoService, private layoutService: LayoutService) {}
 
   ngOnInit() {}
 
@@ -20,5 +21,9 @@ export class ToolbarComponent implements OnInit {
 
   sortBy(e) {
     this.videoService.updateSorting(e.value);
+  }
+
+  updateView(view: string){
+    this.layoutService.updateViewType(view);
   }
 }
