@@ -6,6 +6,9 @@ import { FormsModule } from "@angular/forms";
 // Router
 import { AppRoutingModule } from "./app-routing.module";
 
+// Pipes
+import { IframePipe } from './pipes/iframe.pipe';
+
 // Angular Material
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -32,7 +35,6 @@ import { VideoTilesComponent } from "./video-tiles/video-tiles.component";
 import { ToolbarComponent } from "./toolbar/toolbar.component";
 import { VideoViewComponent } from "./video-view/video-view.component";
 import { VideoDialogComponent } from "./video-dialog/video-dialog.component";
-import { IframePipe } from './iframe.pipe';
 
 @NgModule({
   declarations: [

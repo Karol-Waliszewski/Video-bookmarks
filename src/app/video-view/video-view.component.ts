@@ -55,7 +55,13 @@ export class VideoViewComponent implements OnInit {
   }
 
   openVideoDialog(url: string) {
-    console.log(url)
-    this.dialog.open(VideoDialogComponent, { data: { url } });
+    this.dialog.open(VideoDialogComponent, {
+      maxWidth: "1080px",
+      minWidth: "300px",
+      maxHeight: "720px",
+      width: `${window.innerWidth / 1.5}px`,
+
+      data: { url }
+    });
   }
 }
