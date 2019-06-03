@@ -32,6 +32,7 @@ import { VideoTilesComponent } from "./video-tiles/video-tiles.component";
 import { ToolbarComponent } from "./toolbar/toolbar.component";
 import { VideoViewComponent } from "./video-view/video-view.component";
 import { VideoDialogComponent } from "./video-dialog/video-dialog.component";
+import { IframePipe } from './iframe.pipe';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { VideoDialogComponent } from "./video-dialog/video-dialog.component";
     VideoTilesComponent,
     ToolbarComponent,
     VideoViewComponent,
-    VideoDialogComponent
+    VideoDialogComponent,
+    IframePipe
   ],
   imports: [
     BrowserModule,
