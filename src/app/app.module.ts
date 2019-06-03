@@ -18,6 +18,8 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatCardModule } from "@angular/material/card";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatListModule } from "@angular/material/list";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatDialogModule } from "@angular/material/dialog";
 
 // Components
 import { AppComponent } from "./app.component";
@@ -29,6 +31,7 @@ import { VideoCardComponent } from "./video-card/video-card.component";
 import { VideoTilesComponent } from "./video-tiles/video-tiles.component";
 import { ToolbarComponent } from "./toolbar/toolbar.component";
 import { VideoViewComponent } from "./video-view/video-view.component";
+import { VideoDialogComponent } from "./video-dialog/video-dialog.component";
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { VideoViewComponent } from "./video-view/video-view.component";
     VideoCardComponent,
     VideoTilesComponent,
     ToolbarComponent,
-    VideoViewComponent
+    VideoViewComponent,
+    VideoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,12 @@ import { VideoViewComponent } from "./video-view/video-view.component";
     MatSelectModule,
     MatGridListModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatSnackBarModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    VideoDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
