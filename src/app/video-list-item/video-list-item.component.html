@@ -2,9 +2,11 @@
   <div class="video-list-image">
     <img [src]="video.thumbnail" alt="video thumbnail">
   </div>
-  <div>
-    <h4 class="mat-headline video-title">{{video.title}}</h4>
-    <p class="mat-subheading-2"> Added: {{video.added | date}} </p>
+  <div class="video-info">
+    <mat-card-title>{{video.title}}</mat-card-title>
+    <mat-card-subtitle>Saved: {{video.added | date}} </mat-card-subtitle>
+    <p class="mat-body">Views: {{video.views}}</p>
+    <p class="mat-body">Likes: {{video.likes}}</p>
   </div>
   <span class="spacing"></span>
   <div class="video-action">
