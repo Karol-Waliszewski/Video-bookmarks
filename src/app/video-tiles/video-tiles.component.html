@@ -1,5 +1,5 @@
 <mat-grid-list cols="3" rowHeight="4:5" gutterSize="1rem">
   <mat-grid-tile *ngFor="let video of videos">
-    <video-card [video]="video" (onDelete)="onDelete.emit($event)" (onFavourite)="onFavourite.emit($event)"></video-card>
+    <video-card [video]="video" (onDelete)="onDelete.emit($event)" (onDialog)="onDialog.emit($event)" (onFavourite)="onFavourite.emit($event)"></video-card>
   </mat-grid-tile>
 </mat-grid-list>

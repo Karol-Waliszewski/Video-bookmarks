@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Video } from "../interfaces/video";
 
 @Component({
   selector: "video-list",
@@ -6,7 +7,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./video-list.component.scss"]
 })
 export class VideoListComponent {
-  @Input() videos;
+  @Input() videos: Array<Video>;
   @Output() onDelete = new EventEmitter();
   @Output() onFavourite = new EventEmitter();
   constructor() {}

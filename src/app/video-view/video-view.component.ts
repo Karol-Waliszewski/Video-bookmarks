@@ -1,4 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { MatDialog } from "@angular/material/dialog";
+import { VideoDialogComponent } from "../video-dialog/video-dialog.component";
+
+// Services
 import { LayoutService } from "../layout.service";
 import { VideoService } from "../video.service";
 
@@ -13,14 +18,15 @@ export class VideoViewComponent implements OnInit {
   newestFirst = true;
   constructor(
     private videoService: VideoService,
-    private layoutService: LayoutService
+    private layoutService: LayoutService,
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
     this.videoService.getVideos().subscribe(videos => {
       this.videos = videos;
       this.sortVideos();
-      console.log(this.videos)
     });
     this.videoService.getSorting().subscribe(newestFirst => {
       this.newestFirst = newestFirst;
@@ -28,7 +34,6 @@ export class VideoViewComponent implements OnInit {
     });
     this.layoutService.getViewType().subscribe(view => {
       this.view = view;
-      console.log(this.view)
     });
   }
 
@@ -41,10 +46,16 @@ export class VideoViewComponent implements OnInit {
   }
 
   deleteVideo(id: string) {
+    this.snackBar.open("Video has been removed.", "", { duration: 2500 });
     this.videoService.removeVideo(id);
   }
 
   toggleVideoFavourite(id: string) {
     this.videoService.toggleVideoFavourite(id);
+  }
+
+  openVideoDialog(url: string) {
+    console.log(url)
+    this.dialog.open(VideoDialogComponent, { data: { url } });
   }
 }

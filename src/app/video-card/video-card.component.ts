@@ -1,14 +1,5 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
-
-interface Video {
-  title: string;
-  thumbnail: string;
-  added: Date;
-  likes: number;
-  views: number;
-  id: string;
-  isFavourite: boolean;
-}
+import { Video } from "../interfaces/video";
 
 @Component({
   selector: "video-card",
@@ -19,6 +10,7 @@ export class VideoCardComponent {
   @Input() video: Video;
   @Output() onDelete = new EventEmitter();
   @Output() onFavourite = new EventEmitter();
+  @Output() onDialog = new EventEmitter();
 
   constructor() {}
 }

@@ -1,14 +1,6 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Video } from "../interfaces/video";
 
-interface Video {
-  title: string;
-  thumbnail: string;
-  added: Date;
-  likes: number;
-  views: number;
-  id: string;
-  isFavourite: boolean;
-}
 @Component({
   selector: "video-list-item",
   templateUrl: "./video-list-item.component.html",

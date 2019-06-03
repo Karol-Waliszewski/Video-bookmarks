@@ -2,17 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject } from "rxjs";
 import { v4 as uuid } from "uuid";
-
-interface Video {
-  title: string;
-  thumbnail: string;
-  added?: Date;
-  likes: number;
-  views: number;
-  id?: string;
-  url: string;
-  isFavourite?: boolean;
-}
+import { Video } from "./interfaces/video";
 
 interface youtubeResponse {
   title?: string;

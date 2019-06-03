@@ -3,7 +3,7 @@
     <mat-card-title>{{video.title}}</mat-card-title>
     <mat-card-subtitle>Saved: {{video.added | date}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="video.thumbnail">
+  <img mat-card-image [src]="video.thumbnail" (click)="onDialog.emit(video.url)">
   <mat-card-content>
     <p>Views: {{video.views}}</p>
     <p>Likes: {{video.likes}}</p>
