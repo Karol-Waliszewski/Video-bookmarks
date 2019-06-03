@@ -75,11 +75,14 @@ export class VideoService {
 
   pushVideo(video: Video) {
     this.videos.push(
-      Object.assign(video, {
-        id: uuid(),
-        isFavourite: false,
-        added: Date.now()
-      })
+      Object.assign(
+        {
+          id: uuid(),
+          isFavourite: false,
+          added: Date.now()
+        },
+        video
+      )
     );
 
     this.returnResultVideos();
