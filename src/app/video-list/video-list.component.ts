@@ -10,5 +10,6 @@ export class VideoListComponent {
   @Input() videos: Array<Video>;
   @Output() onDelete = new EventEmitter();
   @Output() onFavourite = new EventEmitter();
+  @Output() onDialog = new EventEmitter();
   constructor() {}
 }

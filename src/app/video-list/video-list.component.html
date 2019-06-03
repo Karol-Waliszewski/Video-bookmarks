@@ -1,5 +1,5 @@
 <ul role="list" class="video-list">
   <li *ngFor="let video of videos" role="listitem">
-    <video-list-item [video]="video" (onDelete)="onDelete.emit($event)" (onFavourite)="onFavourite.emit($event)"></video-list-item>
+    <video-list-item [video]="video" (onDelete)="onDelete.emit($event)" (onDialog)="onDialog.emit($event)" (onFavourite)="onFavourite.emit($event)"></video-list-item>
   </li>
 </ul>

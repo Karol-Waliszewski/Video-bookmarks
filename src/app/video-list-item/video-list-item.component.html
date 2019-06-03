@@ -1,5 +1,5 @@
 <div class="video-list-item">
-  <div class="video-list-image">
+  <div class="video-list-image" (click)="onDialog.emit(video.url)">
     <img [src]="video.thumbnail" alt="video thumbnail">
   </div>
   <div class="video-info">
