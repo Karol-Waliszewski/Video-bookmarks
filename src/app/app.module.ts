@@ -17,6 +17,7 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatSelectModule } from "@angular/material/select";
 import { MatCardModule } from "@angular/material/card";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { MatListModule } from "@angular/material/list";
 
 // Components
 import { AppComponent } from "./app.component";
@@ -56,7 +57,8 @@ import { VideoViewComponent } from "./video-view/video-view.component";
     MatSlideToggleModule,
     MatSelectModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

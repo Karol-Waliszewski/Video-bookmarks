@@ -1,3 +1,24 @@
-<p>
-  video-list-item works!
-</p>
+<div class="video-list-item">
+  <div class="video-list-image">
+    <img [src]="video.thumbnail" alt="video thumbnail">
+  </div>
+  <div>
+    <h4 class="mat-headline video-title">{{video.title}}</h4>
+    <p class="mat-subheading-2"> Added: {{video.added | date}} </p>
+  </div>
+  <span class="spacing"></span>
+  <div class="video-action">
+    <a [href]="video.url" mat-button>Watch</a>
+    <button mat-icon-button matTooltip="Add to favourites" aria-label="Icon button with star"
+      (click)="onFavourite.emit(video.id)">
+      <mat-icon *ngIf="!video.isFavourite; else fav">star_border</mat-icon>
+      <ng-template #fav>
+        <mat-icon>star</mat-icon>
+      </ng-template>
+    </button>
+    <button mat-icon-button matTooltip="Delete a video" aria-label="Icon button with rubbish bin"
+      (click)="onDelete.emit(video.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
