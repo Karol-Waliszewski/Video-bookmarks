@@ -8,7 +8,7 @@ import { VideoService } from "../services/video.service";
   styleUrls: ["./search-input.component.scss"]
 })
 export class SearchInputComponent implements OnInit {
-  private input: string;
+  input: string;
 
   constructor(private videoService: VideoService) {}
 

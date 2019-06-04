@@ -39,7 +39,7 @@ export class VideoService {
 
   loadDemo() {
     this.videos = [];
-    this.http.get("../../assets/videos.json").subscribe(videos => {
+    this.http.get("../../Video-bookmarks/assets/videos.json").subscribe(videos => {
       for (let i = 0; i < videos["length"]; i++) {
         this.pushVideo(videos[i]);
       }
