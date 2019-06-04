@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog } from "@angular/material/dialog";
+import { ActivatedRoute } from "@angular/router";
+
+// Components
 import { VideoDialogComponent } from "../video-dialog/video-dialog.component";
 
 // Services
@@ -15,22 +18,32 @@ import { VideoService } from "../services/video.service";
 export class VideoViewComponent implements OnInit {
   view: string;
   videos = [];
+  displayedVideos = [];
   newestFirst = true;
+  page: number;
+
   constructor(
     private videoService: VideoService,
     private layoutService: LayoutService,
     private snackBar: MatSnackBar,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.page = parseInt(params.get("page")) || 1;
+      this.displayVideos();
+    });
     this.videoService.getVideos().subscribe(videos => {
       this.videos = videos;
       this.sortVideos();
+      this.displayVideos();
     });
     this.videoService.getSorting().subscribe(newestFirst => {
       this.newestFirst = newestFirst;
       this.sortVideos();
+      this.displayVideos();
     });
     this.layoutService.getViewType().subscribe(view => {
       this.view = view;
@@ -47,6 +60,10 @@ export class VideoViewComponent implements OnInit {
     } else {
       this.videos = this.videos.sort((a, b) => (a.added > b.added ? 1 : -1));
     }
+  }
+
+  displayVideos(){
+    this.displayedVideos = this.videos.slice((this.page - 1) * 9, (this.page - 1) * 9 + 9);
   }
 
   deleteVideo(id: string) {

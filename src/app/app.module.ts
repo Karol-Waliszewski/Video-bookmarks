@@ -4,10 +4,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 
 // Router
-import { AppRoutingModule } from "./app-routing.module";
+import { RouterCustomModule } from "./app.routes";
 
 // Pipes
-import { IframePipe } from './pipes/iframe.pipe';
+import { IframePipe } from "./pipes/iframe.pipe";
 
 // Angular Material
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -53,7 +53,7 @@ import { VideoDialogComponent } from "./video-dialog/video-dialog.component";
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
+    RouterCustomModule,
     FormsModule,
     // Angular MateriaL
     BrowserAnimationsModule,
@@ -70,9 +70,7 @@ import { VideoDialogComponent } from "./video-dialog/video-dialog.component";
     MatSnackBarModule,
     MatDialogModule
   ],
-  entryComponents: [
-    VideoDialogComponent
-  ],
+  entryComponents: [VideoDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
