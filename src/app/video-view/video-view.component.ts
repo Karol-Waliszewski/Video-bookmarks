@@ -62,6 +62,10 @@ export class VideoViewComponent implements OnInit {
     }
   }
 
+  clearVideos(){
+    this.videoService.clearVideos();
+  }
+
   displayVideos(){
     this.displayedVideos = this.videos.slice((this.page - 1) * 9, (this.page - 1) * 9 + 9);
   }

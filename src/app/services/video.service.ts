@@ -110,6 +110,11 @@ export class VideoService {
     return this.resultVideos.asObservable();
   }
 
+  clearVideos() {
+    this.videos = [];
+    this.returnResultVideos();
+  }
+
   getFavourites() {
     return this.videos.filter(video => video.isFavourite);
   }
