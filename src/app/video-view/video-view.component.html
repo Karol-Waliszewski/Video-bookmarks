@@ -1,10 +1,17 @@
 <div class="container">
   <h3 *ngIf="!videos.length" class="mat-headline">No saved matching videos found. </h3>
-  <ng-container *ngIf="videos.length">
-    <div *ngIf="videos.length > 9">
+  <div *ngIf="videos.length">
+
+    <a *ngIf="page === 1; else enabledPrevious" mat-button disabled>Previous</a>
+    <ng-template #enabledPrevious>
       <a mat-button [routerLink]="['',page-1]">Previous</a>
+    </ng-template>
+    <a *ngIf="videos.length <= (page-1)*9 + 9; else enabledNext" mat-button disabled>Next</a>
+    <ng-template #enabledNext>
       <a mat-button [routerLink]="['',page+1]">Next</a>
-    </div>
+    </ng-template>
+  </div>
+  <ng-container *ngIf="videos.length">
     <video-tiles *ngIf="view === 'tiles'; else list" [videos]="displayedVideos" (onDelete)="deleteVideo($event)"
       (onDialog)="openVideoDialog($event)" (onFavourite)="toggleVideoFavourite($event)"></video-tiles>
     <ng-template #list>
