@@ -4,8 +4,8 @@ import { MatDialog } from "@angular/material/dialog";
 import { VideoDialogComponent } from "../video-dialog/video-dialog.component";
 
 // Services
-import { LayoutService } from "../layout.service";
-import { VideoService } from "../video.service";
+import { LayoutService } from "../services/layout.service";
+import { VideoService } from "../services/video.service";
 
 @Component({
   selector: "video-view",

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject } from "rxjs";
 import { v4 as uuid } from "uuid";
-import { Video } from "./interfaces/video";
+import { Video } from "../interfaces/video";
 
 interface youtubeResponse {
   title?: string;
@@ -84,7 +84,7 @@ export class VideoService {
         video
       )
     );
-
+    console.log(this.videos);
     this.returnResultVideos();
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { VideoService } from "../video.service";
-import { LayoutService } from "../layout.service";
+import { VideoService } from "../services/video.service";
+import { LayoutService } from "../services/layout.service";
 
 @Component({
   selector: "app-toolbar",
