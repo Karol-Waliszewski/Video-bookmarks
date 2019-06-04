@@ -27,7 +27,7 @@ export class VideoViewComponent implements OnInit {
     private layoutService: LayoutService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {

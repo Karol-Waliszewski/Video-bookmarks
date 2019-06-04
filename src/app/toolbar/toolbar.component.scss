@@ -1,10 +1,31 @@
 .toolbar {
   font-weight: 400;
+
+  @media screen and (max-width:"768px") {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 1rem;
+  }
+}
+
+.toolbar-slide {
+  @media screen and (max-width:"768px") {
+    width: 100%
+  }
+
 }
 
 .spacing {
   display: block;
   flex: 1 1 auto;
+}
+
+.spacing-mobile {
+  @media screen and (max-width:"768px") {
+    display: block;
+    flex: 1 1 auto;
+  }
 }
 
 .sort-label {

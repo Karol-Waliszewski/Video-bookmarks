@@ -1,5 +1,6 @@
 <mat-toolbar class="toolbar" color="default">
-  <mat-slide-toggle class="mat-typography" color="primary" [checked]="checked" (change)="isChecked($event)">
+  <mat-slide-toggle class="mat-typography toolbar-slide" color="primary" [checked]="checked"
+    (change)="isChecked($event)">
     Favourites only
   </mat-slide-toggle>
 
@@ -13,11 +14,17 @@
     </mat-select>
   </mat-form-field>
 
-  <button mat-icon-button matTooltip="Tiles view" aria-label="Icon button turning on tiles view" (click)="updateView('tiles')">
-    <mat-icon>view_modules</mat-icon>
-  </button>
+  <span class="spacing-mobile"></span>
 
-  <button mat-icon-button matTooltip="List view" aria-label="Icon button turning on list view" (click)="updateView('list')">
-    <mat-icon>view_list</mat-icon>
-  </button>
+  <div>
+    <button mat-icon-button matTooltip="Tiles view" aria-label="Icon button turning on tiles view"
+      (click)="updateView('tiles')">
+      <mat-icon>view_modules</mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="List view" aria-label="Icon button turning on list view"
+      (click)="updateView('list')">
+      <mat-icon>view_list</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
