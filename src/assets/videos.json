@@ -1,11 +1,112 @@
 [
-    {
-        title: "Title 1",
-        thumbnail: "",
-        views: 100,
-        likes: 81,
-        added: "01/01/2000"
-
-    }
-
+  {
+    "id": "b6a92c59-3cce-4afb-a0cf-90d5c3b86240",
+    "title": "Is There A New Best Laptop 2019?",
+    "thumbnail": "https://i.ytimg.com/vi/sJK67XXE_Rg/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=sJK67XXE_Rg",
+    "isFavourite": true,
+    "views": 100,
+    "likes": 81,
+    "added": 1559636695565
+  },
+  {
+    "id": "5a0f8d9c-0a0f-40f7-862f-95e62fd8c0ac",
+    "title": "Is There A New Best Laptop 2019?",
+    "thumbnail": "https://i.ytimg.com/vi/B6LaYgGogf0/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=B6LaYgGogf0",
+    "isFavourite": false,
+    "views": 1636,
+    "likes": 548,
+    "added": 1559636776974
+  },
+  {
+    "id": "2fa7bb63-bacb-4a86-adde-bc5205ceea66",
+    "title": "The Most Futuristic 4D Sneakers",
+    "thumbnail": "https://i.ytimg.com/vi/xgAo-IZgm0E/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=xgAo-IZgm0E",
+    "isFavourite": false,
+    "views": 7422,
+    "likes": 727,
+    "added": 1559636831427
+  },
+  {
+    "id": "891b3edc-e768-439f-ba10-c1ea0c02def9",
+    "title": "Gaming On The Samsung Galaxy Fold",
+    "thumbnail": "https://i.ytimg.com/vi/n4Jy8MSjfXI/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=n4Jy8MSjfXI",
+    "isFavourite": true,
+    "views": 1151,
+    "likes": 227,
+    "added": 1559636940398
+  },
+  {
+    "id": "f8b296e1-779b-4ba9-9812-bb37a69e9fb1",
+    "title": "You Guys Asked For Strange Gadgets...",
+    "thumbnail": "https://i.ytimg.com/vi/BQDxbde6lQ8/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=BQDxbde6lQ8",
+    "isFavourite": true,
+    "views": 2415,
+    "likes": 1097,
+    "added": 1559637041868
+  },
+  {
+    "id": "3655a29c-7849-4efb-8a66-9773f4861312",
+    "title": "The Most Luxurious Business Phone",
+    "thumbnail": "https://i.ytimg.com/vi/GAV4LgTA8-U/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=GAV4LgTA8-U",
+    "isFavourite": false,
+    "views": 6389,
+    "likes": 358,
+    "added": 1559637116035
+  },
+  {
+    "id": "599d77c4-503f-457d-93dc-2aa2d7881be1",
+    "title": "Samsung Galaxy Fold vs Flagship Smartphones",
+    "thumbnail": "https://i.ytimg.com/vi/x64go7VZ_fc/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=x64go7VZ_fc",
+    "isFavourite": false,
+    "views": 4442,
+    "likes": 272,
+    "added": 1559637175027
+  },
+  {
+    "id": "6b2e39d9-8a71-4675-8fc6-cdbbc1858c03",
+    "title": "I found a great Apple AirPower alternative...",
+    "thumbnail": "https://i.ytimg.com/vi/KGSyNYksSWU/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=KGSyNYksSWU",
+    "isFavourite": true,
+    "views": 9858,
+    "likes": 133,
+    "added": 1559637277909
+  },
+  {
+    "id": "3474ee1c-fcde-4c9e-b46b-91b7f015f5cf",
+    "title": "A Portable Arcade For The Super Wealthy",
+    "thumbnail": "https://i.ytimg.com/vi/m2VDwLhxAlI/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=m2VDwLhxAlI",
+    "isFavourite": false,
+    "views": 9858,
+    "likes": 133,
+    "added": 1559637409061
+  },
+  {
+    "id": "d4b643bf-aa62-4d21-8b57-9f3a5dae0a24",
+    "title": "Alive",
+    "thumbnail": "https://i.vimeocdn.com/video/603773906_640.jpg",
+    "url": "https://vimeo.com/192417650",
+    "isFavourite": false,
+    "views": 228283,
+    "likes": 5333,
+    "added": 1559637562971
+  },
+  {
+    "id": "af901585-1efe-4264-99b8-7a8cfdb08a67",
+    "title": "EVERYTHING IS IN YOUR HANDS",
+    "thumbnail": "https://i.vimeocdn.com/video/605311003_640.jpg",
+    "url": "https://vimeo.com/192590516",
+    "isFavourite": true,
+    "views": 327192,
+    "likes": 9517,
+    "added": 1559637540464
+  }
 ]

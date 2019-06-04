@@ -26,6 +26,14 @@ export class VideoService {
     this.resultVideos.next(result);
   }
 
+  loadDemo() {
+    this.http.get("../../assets/videos.json").subscribe(videos => {
+      for (let i = 0; i < videos["length"]; i++) {
+        this.pushVideo(videos[i]);
+      }
+    });
+  }
+
   addVideo(input: string) {
     if (input.includes("youtube")) {
       let url = new URL(input);
@@ -84,7 +92,6 @@ export class VideoService {
         video
       )
     );
-    console.log(this.videos);
     this.returnResultVideos();
   }
 
