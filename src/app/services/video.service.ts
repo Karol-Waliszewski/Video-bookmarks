@@ -36,16 +36,26 @@ export class VideoService {
   }
 
   addVideo(input: string) {
-    if (input.includes("youtube")) {
-      let url = new URL(input);
-      this.getYoutubeVideoInfo(url.searchParams.get("v"));
-    } else if (input.includes("youtu")) {
-      let url = new URL(input);
-      this.getYoutubeVideoInfo(url.pathname.slice(1));
-    } else if (input.includes("vimeo")) {
-      let url = new URL(input);
-      this.getVimeoVideoInfo(url.pathname.slice(1));
-    }
+
+      if (input.includes("youtu")) {
+        let id = input.match(
+          /(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/user\/\S+|\/ytscreeningroom\?v=|\/sandalsResorts#\w\/\w\/.*\/))([^\/&]{10,12})/
+        )[1];
+        return this.getYoutubeVideoInfo(id);
+      } 
+
+      if (input.includes("vimeo")) {
+        let id = input.match(/(http|https)?:\/\/(www|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|)(\d+)(?:|\/\?)/i)[4];
+        return this.getVimeoVideoInfo(id);
+      }
+    
+      if(input.match(/^[A-Za-z0-9_-]{11}$/)){
+        return this.getYoutubeVideoInfo(input);
+      }
+    
+      if(input.match(/(\d+)(?:|\/\?)/)){
+        return this.getVimeoVideoInfo(input);
+      }
   }
 
   getYoutubeVideoInfo(id: string) {
