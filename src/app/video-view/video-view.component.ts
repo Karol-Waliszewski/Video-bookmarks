@@ -35,7 +35,9 @@ export class VideoViewComponent implements OnInit {
     this.layoutService.getViewType().subscribe(view => {
       this.view = view;
     });
+  }
 
+  loadDemo() {
     this.videoService.loadDemo();
   }
 
