@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject } from "rxjs";
 import { v4 as uuid } from "uuid";
+import Dexie from "dexie";
 import { Video } from "../interfaces/video";
 
 interface youtubeResponse {
@@ -18,8 +19,18 @@ export class VideoService {
   private onlyFavourites = false;
   private newestVideosFirst = new BehaviorSubject(true);
   private resultVideos = new BehaviorSubject(this.videos);
+  private db;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.db = new Dexie("videosDatabase");
+    this.db.version(1).stores({
+      videos: "id,title,thumbnail,likes,views,url,isFavourite,added"
+    });
+
+    this.db.videos.each(res => {
+      this.pushVideo(res);
+    });
+  }
 
   private returnResultVideos() {
     let result = this.onlyFavourites ? this.getFavourites() : this.videos;
@@ -36,26 +47,27 @@ export class VideoService {
   }
 
   addVideo(input: string) {
+    if (input.includes("youtu")) {
+      let id = input.match(
+        /(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/user\/\S+|\/ytscreeningroom\?v=|\/sandalsResorts#\w\/\w\/.*\/))([^\/&]{10,12})/
+      )[1];
+      return this.getYoutubeVideoInfo(id);
+    }
 
-      if (input.includes("youtu")) {
-        let id = input.match(
-          /(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/user\/\S+|\/ytscreeningroom\?v=|\/sandalsResorts#\w\/\w\/.*\/))([^\/&]{10,12})/
-        )[1];
-        return this.getYoutubeVideoInfo(id);
-      } 
+    if (input.includes("vimeo")) {
+      let id = input.match(
+        /(http|https)?:\/\/(www|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|)(\d+)(?:|\/\?)/i
+      )[4];
+      return this.getVimeoVideoInfo(id);
+    }
 
-      if (input.includes("vimeo")) {
-        let id = input.match(/(http|https)?:\/\/(www|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|)(\d+)(?:|\/\?)/i)[4];
-        return this.getVimeoVideoInfo(id);
-      }
-    
-      if(input.match(/^[A-Za-z0-9_-]{11}$/)){
-        return this.getYoutubeVideoInfo(input);
-      }
-    
-      if(input.match(/(\d+)(?:|\/\?)/)){
-        return this.getVimeoVideoInfo(input);
-      }
+    if (input.match(/^[A-Za-z0-9_-]{11}$/)) {
+      return this.getYoutubeVideoInfo(input);
+    }
+
+    if (input.match(/(\d+)(?:|\/\?)/)) {
+      return this.getVimeoVideoInfo(input);
+    }
   }
 
   getYoutubeVideoInfo(id: string) {
@@ -93,16 +105,16 @@ export class VideoService {
   }
 
   pushVideo(video: Video) {
-    this.videos.push(
-      Object.assign(
-        {
-          id: uuid(),
-          isFavourite: false,
-          added: Date.now()
-        },
-        video
-      )
+    let vid = Object.assign(
+      {
+        id: uuid(),
+        isFavourite: false,
+        added: Date.now()
+      },
+      video
     );
+    this.videos.push(vid);
+    this.db.videos.add(vid);
     this.returnResultVideos();
   }
 
@@ -112,6 +124,7 @@ export class VideoService {
 
   clearVideos() {
     this.videos = [];
+    this.db.videos.clear();
     this.returnResultVideos();
   }
 
@@ -125,6 +138,7 @@ export class VideoService {
 
   removeVideo(id: string) {
     this.videos = this.videos.filter(video => video.id !== id);
+    this.db.videos.delete(id);
     this.returnResultVideos();
   }
 
